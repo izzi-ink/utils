@@ -1,0 +1,68 @@
+# Readme
+
+This collection of scripts are a personal collection, that helps me convert hand-written notes to markdown files, and then combine them into a single file.
+I use scanning apps, to scan my handwritten notes, and then use OCR sofrware to convert the scanned images to text files.
+The scripts in this collection are used to convert the text files to markdown files, and then combine them into a single file.
+
+Feel free to use and improve. I will be happy to accept any pull requests.
+
+
+## Convert.sh
+
+This convert script uses the command line tool pandoc to convert the text file to markdown file.
+
+Please note that you need to install pandoc before running this script. you can do this by running brew install pandoc.
+
+Also, please make sure to replace the path variable with the actual path to the folder containing your text files.
+
+You can run this script in terminal by navigating to the directory where the script is located and running the command sh script_name.sh.
+
+## txt2md.sh
+
+This script will loop through all the files in the current directory with the *.txt extension, it will rename the file by getting the file name without the extension and will use this name to create a markdown file with the same name but with a .md extension.
+
+For example, if the script encounters a file named "notes.txt", it will create a new file named "notes.md" in the same directory, and will retain the original file "notes.txt"
+
+You can run this script the same way as before, by navigating to the directory where the script is located and running the command sh script_name.sh.
+
+Please make sure that you have installed pandoc in your system before running this script.
+
+## rename.sh
+
+This script uses the command printf that allows to format the number with leading zeroes and mv command to rename the files. The loop iterates through all files with *.md extension in the current directory. It takes each file and renames it by using the format "page-01.md" and increasing the number by one for each iteration of the loop.
+
+You can run this script in terminal by navigating to the directory where the script is located and running the command sh script_name.sh.
+Please be careful when running this script, make sure to test it on a small set of files and make sure the files you want to process are in the correct directory.
+
+## nam-num.sh
+
+This script first uses the ls -1 command to get a list of all files in the current directory, then uses grep command to filter the list of files to include only files with the format "page-##.md", the tail -1 command is used to get the last file in the list.
+then it uses grep -oE '[0-9][0-9]' to extract the last number from the last file name.
+
+The script then uses an if-else check to determine whether there are any files with the format "page-##.md" in the directory.
+If there are no files with that format, the script will set the counter to 1.
+Otherwise, the script will set the counter to the last number + 1.
+
+It then loops through all the files with *.md extension in the current directory and uses the mv command to rename the files with the format "page-##.md" using the counter that was set earlier.
+
+Please be careful when running this script, make sure to test it on a small set of files and make sure the files you want to process are in the correct directory.
+
+## combine.sh
+
+This script uses the cat command to concatenate the content of each markdown files in the current directory and append it to the output file "combined_pages.md" using the redirection operator >>.
+The script first check if the output file already exists, if it does it will remove it using the rm -f command.
+
+Please be careful when running this script, make sure to test it on a small set of files and make sure the files you want to process are in the correct directory.
+Also, please note that this script will combine all the markdown files in the directory, so make sure that you want to combine all the files together before running it.
+
+## cleanup.sh
+
+This script first uses the mkdir -p command to create the RAW folder if it doesn't exist, and then uses the mv command to move all the *.txt files in the current directory to the RAW folder.
+
+You can run this script in terminal by navigating to the directory where the script is located and running the command sh cleanup.sh.
+Please be careful when running this script, make sure to test it on a small set of files and make sure the files you want to move are in the correct directory.
+You can run this script after running the script that converts the txt files to markdown files, this way it will move the original txt files to the RAW folder and keep the markdown files in the current directory for further processing or reading.
+
+## bind.sh
+
+This script uses the same logic as the previous one, but for each file, it extracts the page number from the file name (assuming file names are in the format "page
