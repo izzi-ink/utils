@@ -35,7 +35,7 @@ chmod +x organize_files.sh
 1. Run the script:
 
 ```
-./organise_files.sh
+./organize_files.sh
 ```
 The script will organize the files in the current directory based on the specified file types into their respective folders.
 
