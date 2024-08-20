@@ -18,6 +18,8 @@ move_files "PDF" "PDFs"
 move_files "pdf" "PDFs"
 move_files "epub" "EPubs"
 move_files "EPUB" "Epubs"
+move_files "MP4" "MP4s"
+move_files "webp" "Webps"
 
 # Add more file types and folder names as needed
 
