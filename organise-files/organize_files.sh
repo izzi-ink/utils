@@ -34,6 +34,9 @@ move_files "wav" "audio"
 move_files "mp3" "audio"
 move_files "avif" "avif"
 move_files "svg" "SVGs"
+move_files "mov" "MOV"
+move_files "m4a" "m4a"
+move_files "pptx" "ppt"
 
 # Function to move files containing a specific string into a folder
 move_files_with_string() {
